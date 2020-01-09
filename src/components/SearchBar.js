@@ -29,6 +29,12 @@ export const SearchBar = props => {
       : setResults([]);
   }, [searchText]);
 
+  const handleClick = (result) => {
+    props.onClick(result);
+    setResults([]);
+    setText('');
+  }
+
   return (
     <div className="my-5 mx-auto search-container">
       <input
@@ -41,7 +47,7 @@ export const SearchBar = props => {
       {searchText.length > 0 &&
       <div className="result-container">
         {results.map(result => (
-            <div className="result-option">
+            <div className="result-option" onClick={() => handleClick(result)}>
                 {result.location}
             </div>
         ))}

@@ -1,0 +1,26 @@
+.info-card {
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 20px;
+    margin: 16px;
+    position: relative;
+}
+
+.info-card-header {
+    color: #7837AF;
+}
+
+.info-card p {
+    margin: 4px 0;
+}
+
+.close-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
