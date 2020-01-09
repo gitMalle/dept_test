@@ -29,11 +29,11 @@ export const SearchBar = props => {
       : setResults([]);
   }, [searchText]);
 
-  const handleClick = (result) => {
+  const handleClick = result => {
     props.onClick(result);
     setResults([]);
-    setText('');
-  }
+    setText("");
+  };
 
   return (
     <div className="my-5 mx-auto search-container">
@@ -44,16 +44,19 @@ export const SearchBar = props => {
         value={searchText}
         onChange={ev => setText(ev.target.value)}
       />
-      {searchText.length > 0 &&
-      <div className="result-container">
-        {results.map(result => (
-            <div key={result.id} className="result-option" onClick={() => handleClick(result)}>
-                {result.location}
+      {searchText.length > 0 && (
+        <div className="result-container">
+          {results.map(result => (
+            <div
+              key={result.id}
+              className="result-option"
+              onClick={() => handleClick(result)}
+            >
+              {result.location}
             </div>
-        ))}
-      </div>
-      }
-      
+          ))}
+        </div>
+      )}
     </div>
   );
 };
