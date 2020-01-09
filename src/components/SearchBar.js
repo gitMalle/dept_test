@@ -47,7 +47,7 @@ export const SearchBar = props => {
       {searchText.length > 0 &&
       <div className="result-container">
         {results.map(result => (
-            <div className="result-option" onClick={() => handleClick(result)}>
+            <div key={result.id} className="result-option" onClick={() => handleClick(result)}>
                 {result.location}
             </div>
         ))}

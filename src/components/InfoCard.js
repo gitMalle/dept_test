@@ -4,7 +4,7 @@ import close_icon from '../assets/close.svg';
 import "../styles/InfoCard.css";
 
 export const InfoCard = props => {
-  const { location } = props;
+  const { location, onRemove } = props;
   const [measurements, setMeasurements] = useState([]);
 
   // fetch measurements
@@ -44,13 +44,13 @@ export const InfoCard = props => {
       <p>
         Values:{" "}
         {measurements.map((measurement, index) => (
-          <span className="text-uppercase">
+          <span key={index} className="text-uppercase">
             {measurement.parameter}: {measurement.value}
             {index + 1 < measurements.length && ", "}
           </span>
         ))}
       </p>
-      <img src={close_icon} className="close-icon" />
+      <img src={close_icon} className="close-icon" onClick={() => onRemove(location)} />
     </div>
   );
 };
